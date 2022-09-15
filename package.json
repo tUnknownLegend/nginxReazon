@@ -1,0 +1,23 @@
+{
+  "name": "reazon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "DEBUG=server node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tUnknownLegend/Reazon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tUnknownLegend/Reazon/issues"
+  },
+  "homepage": "https://github.com/tUnknownLegend/Reazon#readme",
+  "dependencies": {
+    "debug": "^4.3.4"
+  }
+}

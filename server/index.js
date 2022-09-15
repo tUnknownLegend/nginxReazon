@@ -1,18 +1,22 @@
 const http = require("http");
 const fs = require('fs');
+const debug = require('debug')
 
 const SERVER_PORT = 3002;
 
-const index = http.createServer((req, res, next) => {
+const log = debug('server');
+
+const server = http.createServer((req, res, next) => {
     const {url} = req;
 
-    console.log('request', url);
+    log('request', url);
 
     const fileName = url === '/' ? '/index.html' : url;
     fs.readFile(`${__dirname}/../public${fileName}`, (err, data) => {
         if (err) {
             res.write('404 not found');
-            res.end('error', url, 'not found');
+            log('error', url, 'not found');
+            res.end();
             return;
         }
         res.write(data);
@@ -20,4 +24,4 @@ const index = http.createServer((req, res, next) => {
     });
 });
 
-index.listen(SERVER_PORT);
+server.listen(SERVER_PORT);
