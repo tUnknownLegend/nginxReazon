@@ -15,7 +15,6 @@ const index = http.createServer((req, res, next) => {
             res.end('error', url, 'not found');
             return;
         }
-
         res.write(data);
         res.end();
     });
