@@ -1,23 +1,30 @@
 {
-  "name": "reazon",
+  "name": "2022_2_base",
   "version": "1.0.0",
-  "description": "",
+  "description": "Проект Ozon команды \"Base\"",
   "main": "index.js",
   "scripts": {
-    "start": "DEBUG=server node server"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "PORT=3002 DEBUG=server node server",
+    "tmpl": "./node_modules/.bin/fest-build --dir=public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tUnknownLegend/Reazon.git"
+    "url": "git+https://github.com/frontend-park-mail-ru/2022_2_Base.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tUnknownLegend/Reazon/issues"
+    "url": "https://github.com/frontend-park-mail-ru/2022_2_Base/issues"
   },
-  "homepage": "https://github.com/tUnknownLegend/Reazon#readme",
+  "homepage": "https://github.com/frontend-park-mail-ru/2022_2_Base#readme",
   "dependencies": {
-    "debug": "^4.3.4"
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "debug": "^4.3.4",
+    "express": "^4.18.1",
+    "handlebars": "^4.7.7",
+    "morgan": "^1.10.0",
+    "uuid": "^9.0.0"
   }
 }

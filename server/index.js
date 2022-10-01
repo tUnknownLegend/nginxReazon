@@ -1,27 +1,49 @@
-const http = require("http");
-const fs = require('fs');
-const debug = require('debug')
+'use strict';
 
-const SERVER_PORT = 3002;
+const express = require('express');
+const body = require('body-parser');
+const cookie = require('cookie-parser');
+const morgan = require('morgan');
+// const uuid = require('uuid').v4;
+// const path = require('path');
+const app = express();
+app.use(morgan('dev'));
+app.use(body.json());
+app.use(cookie());
 
-const log = debug('server');
+const port = process.env.PORT || 3000;
 
-const server = http.createServer((req, res, next) => {
-    const {url} = req;
+const fsPromises = require('fs').promises
 
-    log('request', url);
+app.get('/', (req, res) => {
+    res.send('index')
+})
 
-    const fileName = url === '/' ? '/index.html' : url;
-    fs.readFile(`${__dirname}/../public${fileName}`, (err, data) => {
-        if (err) {
-            res.write('404 not found');
-            log('error', url, 'not found');
-            res.end();
-            return;
-        }
-        res.write(data);
-        res.end();
-    });
+app.post('/login', (req, res) => {
+    res.cookie('', req.username, {expires: new Date(Date.now() + 1000 * 60 * 10)});
+    res.status(201).json({req});
+})
+
+app.delete('/logout', (req, res) => {
+    res.send('logout')
+})
+
+app.post('/signup', (req, res) => {
+    res.send('signup')
+})
+
+app.get('/session', (req, res) => {
+    res.send('session')
+})
+
+app.get('/getHomePage', (req, res) => {
+    res.send('getHomePage')
+})
+
+// app.all('[^]*', (req, res) => {
+//     res.status(404).send('Not found. Undefined request path');
+// });
+
+app.listen(port, () => {
+    console.log(`Server listening port ${port}`);
 });
-
-server.listen(SERVER_PORT);
