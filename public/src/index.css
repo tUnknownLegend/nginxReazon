@@ -1,4 +1,4 @@
-@import './components/Header/Header.css';
+@import 'componentseader/Header.css';
 
 :root {
     --default_purple: #6369D1;
