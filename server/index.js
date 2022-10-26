@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const express = require('express');
 const morgan = require('morgan');
@@ -12,9 +12,9 @@ app.use(express.static(publicFolder));
 const port = process.env.PORT || 3000;
 
 app.all('/*', (req, res) => {
-    res.sendFile(path.resolve('${publicFolder}/index.html'));
-})
+    res.sendFile(path.resolve(`${publicFolder}/index.html`));
+});
 
-app.listen(port, function () {
+app.listen(port, () => {
     console.log(`Server listening port ${port}`);
 });

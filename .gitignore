@@ -1,4 +1,3 @@
 .idea
 node_modules
-*.tmpl.js
-.vscode
+public/src/*/templates.js

@@ -4,26 +4,31 @@
   "description": "Проект Ozon команды \"Base\"",
   "main": "index.js",
   "scripts": {
-    "start": "PORT=3002 DEBUG=server node server",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "handlebars -m public/src/components/*/*.hbs -f ./public/components/templates.js"
+    "start": "PORT=80 DEBUG=server node server"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/frontend-park-mail-ru/2022_2_Base.git"
   },
-  "author": "Liza",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/frontend-park-mail-ru/2022_2_Base/issues"
   },
   "homepage": "https://github.com/frontend-park-mail-ru/2022_2_Base#readme",
   "dependencies": {
-    "body-parser": "^1.20.0",
-    "cookie-parser": "^1.4.6",
     "express": "^4.18.1",
-    "express-handlebars": "^6.0.6",
     "handlebars": "^4.7.7",
     "morgan": "^1.10.0"
+  },
+  "contributors": [
+    "Liza",
+    "Alex",
+    "Vlad",
+    "Artem"
+  ],
+  "funding": "https://www.donationalerts.com/r/reazon2022",
+  "devDependencies": {
+    "eslint-config-google": "^0.14.0",
+    "eslint": "^8.24.0"
   }
 }
