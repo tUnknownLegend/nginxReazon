@@ -1,20 +1,6 @@
 'use strict';
+httpProxy = require('http-proxy');
 
-const express = require('express');
-const morgan = require('morgan');
-const path = require('path');
-const app = express();
-const publicFolder = path.resolve(__dirname, '..', 'public');
+httpProxy.createProxyServer({target:'http://89.208.198.137:8081/'}).listen(80);
 
-app.use(morgan('dev'));
-app.use(express.static(publicFolder));
-
-const port = process.env.PORT || 3000;
-
-app.all('/*', (req, res) => {
-    res.sendFile(path.resolve(`${publicFolder}/index.html`));
-});
-
-app.listen(port, () => {
-    console.log(`Server listening port ${port}`);
-});
+httpProxy.createProxyServer({target:'http://89.208.198.137:8081/'}).listen(443);
