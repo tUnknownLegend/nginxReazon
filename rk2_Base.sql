@@ -8,15 +8,15 @@ CREATE TABLE products
     price         DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
     discountPrice DECIMAL(10, 2) NULL,
     rating        DECIMAL(2, 1)  NOT NULL DEFAULT 0.0,
-    imgsrc        VARCHAR(50)    NOT NULL,
+    imgSrc        VARCHAR(50)    NOT NULL,
     CHECK ( price > 0 ),
     CHECK ( discountPrice > 0 ),
-    constraint validDiscount CHECK (  discountPrice < price  ),
+    constraint validDiscount CHECK ( discountPrice < price ),
     CHECK ( rating >= 0)
 );
 
 -- Table products:
--- {id} -> name, category, price, discountPrice, rating, imgsrc
+-- {id} -> name, category, price, discountPrice, rating, imgSrc
 
 CREATE TABLE users
 (
@@ -37,7 +37,7 @@ CREATE TABLE users
 --     'processed',
 --     'delivery',
 --     'delivered',
---     'reciewed',
+--     'received',
 --     'returned'
 -- );
 
@@ -70,15 +70,18 @@ CREATE TABLE orders
 
 CREATE TABLE orderItems
 (
-    id        SERIAL PRIMARY KEY,
-    productID INT REFERENCES products (id) ON DELETE CASCADE,
-    orderID   INT REFERENCES orders (id) ON DELETE CASCADE,
-    count     INT NOT NULL,
+    id           SERIAL PRIMARY KEY,
+    productID    INT REFERENCES products (id) ON DELETE CASCADE,
+    orderID      INT REFERENCES orders (id) ON DELETE CASCADE,
+    count        INT            NOT NULL,
+    pricePerUnit DECIMAL(10, 2) NOT NULL,
     CHECK ( count > 0 )
 );
 
 -- Table orderItems:
 -- {id} -> productID, orderID, count
+-- Цена товара за еденицу (pricePerUnit) есть в таблице,
+-- потому что цена товара может изменится после создания заказа
 
 CREATE TABLE address
 (
