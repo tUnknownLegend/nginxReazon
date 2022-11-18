@@ -43,14 +43,14 @@ CREATE TABLE users
 
 CREATE TABLE orders
 (
-    id            SERIAL PRIMARY KEY,
-    userID        INT REFERENCES users (id) ON DELETE CASCADE,
-    orderStatus   VARCHAR(20) NOT NULL,
-    paymentStatus VARCHAR(30) NOT NULL,
-    address       VARCHAR(50) NOT NULL,
-    creationDate  timestamp   NOT NULL,
-    deliveryDate  timestamp   NOT NULL,
-    CONSTRAINT validDeliveryDate CHECK ( deliveryDate > creationDate )
+    id                SERIAL PRIMARY KEY,
+    userID            INT REFERENCES users (id) ON DELETE CASCADE,
+    orderStatus       VARCHAR(20) NOT NULL,
+    paymentStatus     VARCHAR(30) NOT NULL,
+    address           VARCHAR(50),
+    paymentCardNumber VARCHAR(16),
+    creationDate      timestamp,
+    deliveryDate      timestamp
 );
 
 -- Table orders:
