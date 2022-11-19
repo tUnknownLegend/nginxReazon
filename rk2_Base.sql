@@ -18,7 +18,7 @@ CREATE TABLE products (
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email VARCHAR(30) NOT NULL UNIQUE,
-    username VARCHAR(30) NOT NULL,
+    name VARCHAR(30) NOT NULL,
     password VARCHAR(30) NOT NULL,
     phone VARCHAR(15) NULL UNIQUE,
     avatar VARCHAR(30) NULL UNIQUE
@@ -78,7 +78,7 @@ CREATE TABLE address (
     street VARCHAR(50) NOT NULL,
     house VARCHAR(50) NOT NULL,
     flat VARCHAR(50) NULL,
-    priority BOOLEAN NOT NULL DEFAULT FALSE,
+    isPrimary BOOLEAN NOT NULL DEFAULT FALSE,
     deleted BOOLEAN NULL
 );
 
@@ -91,7 +91,7 @@ CREATE TABLE payment (
     paymentType VARCHAR(50) NOT NULL,
     number VARCHAR(16) NOT NULL,
     expiryDate DATE NOT NULL,
-    priority BOOLEAN NOT NULL DEFAULT FALSE,
+    isPrimary BOOLEAN NOT NULL DEFAULT FALSE,
     deleted BOOLEAN NULL
 );
 
