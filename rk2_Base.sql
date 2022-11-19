@@ -25,7 +25,7 @@ CREATE TABLE users (
 );
 
 -- Table users:
--- {id} -> email, username, password, phone, avatar
+-- {id} -> email, name, password, phone, avatar
 -- CREATE TYPE "OrderStatus" AS ENUM (
 --     'cart',
 --     'created',
@@ -83,7 +83,7 @@ CREATE TABLE address (
 );
 
 -- Table address:
--- {id} -> userID, city, street, house, flat, priority, deleted
+-- {id} -> userID, city, street, house, flat, isPrimary, deleted
 -- CREATE TYPE paymentType AS ENUM ('card');
 CREATE TABLE payment (
     id SERIAL PRIMARY KEY,
@@ -96,4 +96,4 @@ CREATE TABLE payment (
 );
 
 -- Table payment:
--- {id} -> userID, paymentType, number, expiryDate, priority, deleted
+-- {id} -> userID, paymentType, number, expiryDate, isPrimary, deleted
