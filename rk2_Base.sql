@@ -19,7 +19,7 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     email VARCHAR(30) NOT NULL UNIQUE,
     username VARCHAR(30) NOT NULL,
-    PASSWORD VARCHAR(30) NOT NULL,
+    password VARCHAR(30) NOT NULL,
     phone VARCHAR(15) NULL UNIQUE,
     avatar VARCHAR(30) NULL UNIQUE
 );
@@ -60,15 +60,15 @@ CREATE TABLE orders (
 -- );
 CREATE TABLE orderItems (
     id SERIAL PRIMARY KEY,
-    productID INT REFERENCES products (id) ON DELETE CASCADE,
-    orderID INT REFERENCES orders (id) ON DELETE CASCADE,
+    productID INT PRIMARY KEY REFERENCES products (id) ON DELETE CASCADE,
+    orderID INT PRIMARY KEY REFERENCES orders (id) ON DELETE CASCADE,
     count INT NOT NULL,
     pricePerUnit DECIMAL(10, 2) NOT NULL,
     CHECK (count > 0)
 );
 
 -- Table orderItems:
--- {id} -> productID, orderID, count
+-- {id, productID, orderID} -> count, pricePerUnit
 -- Цена товара за еденицу (pricePerUnit) есть в таблице,
 -- потому что цена товара может изменится после создания заказа
 CREATE TABLE address (
@@ -79,11 +79,11 @@ CREATE TABLE address (
     house VARCHAR(50) NOT NULL,
     flat VARCHAR(50) NULL,
     priority BOOLEAN NOT NULL DEFAULT FALSE,
-    deletionDate BOOLEAN NULL
+    deleted BOOLEAN NULL
 );
 
 -- Table address:
--- {id} -> userID, city, street, house, flat, priority
+-- {id} -> userID, city, street, house, flat, priority, deleted
 -- CREATE TYPE paymentType AS ENUM ('card');
 CREATE TABLE payment (
     id SERIAL PRIMARY KEY,
@@ -92,8 +92,8 @@ CREATE TABLE payment (
     number VARCHAR(16) NOT NULL,
     expiryDate DATE NOT NULL,
     priority BOOLEAN NOT NULL DEFAULT FALSE,
-    deletionDate BOOLEAN NULL
+    deleted BOOLEAN NULL
 );
 
 -- Table payment:
--- {id} -> userID, paymentType, number, expiryDate, priority
+-- {id} -> userID, paymentType, number, expiryDate, priority, deleted
