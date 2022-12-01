@@ -17,7 +17,7 @@ server {
         }
 
         location =/sw.js {
-                proxy_pass /home/ubuntu/front-next/public/src/sw.js;
+                root /home/ubuntu/front-next/public/src/sw.js;
         }
 }
 
