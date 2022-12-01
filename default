@@ -18,7 +18,7 @@ server {
 
         location =/sw.js {
                 add_header 'Service-Worker-Allowed' '/';
-                #root /home/ubuntu/front-next/public/src/sw.js;
+                root /home/ubuntu/front-next/public/src/sw.js;
         }
 }
 
