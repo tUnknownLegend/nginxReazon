@@ -16,10 +16,10 @@ server {
                 proxy_pass http://89.208.198.137:8080/api/v1/;
         }
 
-        location =/sw.js {
-                add_header 'Service-Worker-Allowed' '/';
-                root /home/ubuntu/front-next/public/src/sw.js;
-        }
+        # location =/sw.js {
+        #         add_header 'Service-Worker-Allowed' '/';
+        #         root /home/ubuntu/front-next/public/src/sw.js;
+        # }
 }
 
 # server {
