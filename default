@@ -40,16 +40,16 @@ server {
 
         location / {
                 root /home/ubuntu/front-next/dist;
-                try_files $uri /index.html;
+                try_files $uri /index.html =404;
 
-                etag on;
-                expires max;
-                add_header Cache-Control public;
+                # etag on;
+                # expires max;
+                # add_header Cache-Control public;
 
-                location = /index.html {
-                        expires 0;
-                        add_header Cache-Control "no-cache, public, must-revalidate, proxy-revalidate";
-                }
+                # location = /index.html {
+                #         expires 0;
+                #         add_header Cache-Control "no-cache, public, must-revalidate, proxy-revalidate";
+                # }
         }
 
         # location = /index.html {
