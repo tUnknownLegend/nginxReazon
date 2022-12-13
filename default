@@ -38,11 +38,12 @@ server {
 
         # error_page 404 /home/ubuntu/front-next/dist/index.html;
 
-        root /home/ubuntu/front-next/dist;
+        # root /home/ubuntu/front-next/dist;
 
         location / {
-                alias /home/ubuntu/front-next/dist;
-                try_files $1 $1/ /index.html =404;
+                # alias /home/ubuntu/front-next/dist;
+                root /home/ubuntu/front-next/dist;
+                try_files $uri $uri/ /index.html =404;
 
                 index index.html;
 
