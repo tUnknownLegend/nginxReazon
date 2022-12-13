@@ -36,7 +36,7 @@ server {
         # gzip_min_length 1000;
 
         location / {
-                index index.html;
+                # index index.html;
                 root /home/ubuntu/front-next/dist;
         }
 
