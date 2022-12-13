@@ -33,7 +33,7 @@ server {
         gzip            on;
         gzip_vary       on;
         gzip_proxied    any;
-        gzip_types      text/plain text/css text/js text/xml font/woff application/json application/manifest+json image/webp image/svg+xml;
+        gzip_types      text/plain text/css text/javascript text/xml font/woff application/json application/manifest+json image/webp image/svg+xml;
         gzip_min_length 256;
 
         location / {
