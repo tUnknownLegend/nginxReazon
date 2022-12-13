@@ -38,8 +38,12 @@ server {
 
         location / {
                 root /home/ubuntu/front-next/dist;
-                try_files /base.html =404;
+                try_files '' /index.html =404;
         }
+
+        # location = /base.html {
+        #         expires 30s;
+        # }
 
         location /api/v1/ {
                 proxy_pass http://89.208.198.137:8080/api/v1/;
