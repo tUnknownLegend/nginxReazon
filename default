@@ -1,14 +1,14 @@
 # proxy_cache_path /data/nginx/cache keys_zone=frontend:10m;
 
-# server {
-#         listen 80;
-#         listen 443;
-#         server_name reazon.ru;
+server {
+        listen 80;
+        listen 443;
+        server_name reazon.ru;
 
-#         location / {
-#                 return 301 https://www.$host$request_uri;
-#         }
-# }
+        location / {
+                return 301 https://www.$host$request_uri;
+        }
+}
 
 # server {
 #         listen 80;
