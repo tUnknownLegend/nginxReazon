@@ -36,11 +36,11 @@ server {
         gzip_types      text/plain text/css text/xml font/woff application/json application/manifest+json image/webp image/svg+xml;
         gzip_min_length 256;
 
+        root /home/ubuntu/front-next/dist;
+        error_page      404     /index.html;
+
         location / {
-                root /home/ubuntu/front-next/dist;
-                index index.html
-                error_page 404 /index.html;
-                try_files $uri $uri/ =404;
+                try_files $uri $uri/ /index.html=400;
         }
 
         location /api/v1/ {
