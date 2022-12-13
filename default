@@ -45,7 +45,7 @@ server {
                 root /home/ubuntu/front-next/dist;
                 add_header Cache-Control no-cache;
                 expires 0;
-                try_files index.html;
+                try_files /index.html;
         }
 
         location /api/v1/ {
