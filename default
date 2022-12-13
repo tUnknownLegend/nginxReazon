@@ -2,7 +2,16 @@
 
 server {
         listen 80;
-        server_name reazon.ru www.reazon.ru;
+        server_name reazon.ru;
+
+        location / {
+                return 301 https://$host$request_uri;
+        }
+}
+
+server {
+        listen 80;
+        server_name www.reazon.ru;
 
         # location / {
         #         return 301 https://$host$request_uri;
@@ -12,14 +21,9 @@ server {
                 proxy_pass http://89.208.198.137:8081/;
         }
 
-        location /api/v1/ {
+        location /api/ {
                 proxy_pass http://89.208.198.137:8080/api/v1/;
         }
-
-        # location =/sw.js {
-        #         add_header 'Service-Worker-Allowed' '/';
-        #         root /home/ubuntu/front-next/public/src/sw.js;
-        # }
 }
 
 # server {
