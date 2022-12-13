@@ -34,7 +34,7 @@ server {
         gzip_min_length 1000;
 
         location / {
-                /home/ubuntu/front-next/dist/index.html
+                root /home/ubuntu/front-next/dist/index.html;
                 # proxy_pass http://89.208.198.137:8081/;
         }
 
