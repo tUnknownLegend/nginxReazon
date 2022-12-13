@@ -41,6 +41,7 @@ server {
         root /home/ubuntu/front-next/dist;
 
         location / {
+                alias /home/ubuntu/front-next/dist;
                 try_files $uri $uri/ /index.html =404;
 
                 index index.html;
