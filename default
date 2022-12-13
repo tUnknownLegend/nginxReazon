@@ -37,6 +37,7 @@ server {
 
         location / {
                 root /home/ubuntu/front-next/dist;
+                try_files $uri $uri/ /index.html;
         }
 
         location /api/v1/ {
