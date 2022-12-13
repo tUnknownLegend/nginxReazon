@@ -20,8 +20,8 @@ server {
 # }
 
 server {
-        # listen 80;
-        listen 80 http2;
+        listen 80;
+        # listen 443 http2;
         server_name www.reazon.ru;
 
         # location / {
