@@ -20,15 +20,15 @@ server {
 # }
 
 server {
-        # listen 80;
-        listen 443 http2;
+        listen 80;
+        # listen 443 http2;
         server_name www.reazon.ru;
 
         # location / {
         #         return 301 https://$host$request_uri;
         # }
 
-        gzip            on;
+        # gzip            on;
         # gzip_vary       on;
         # gzip_proxied    any;
         # gzip_comp_level 6;
