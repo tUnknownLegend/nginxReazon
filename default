@@ -48,14 +48,14 @@ server {
         }
 }
 
-# server {
-#     if ($host = www.reazon.ru) {
-#         return 301 https://$host$request_uri;
-#     } # managed by Certbot
+server {
+    if ($host = www.reazon.ru) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
 
 
-#         server_name www.reazon.ru;
-#     listen 80;
-#     return 404; # managed by Certbot
+    server_name www.reazon.ru;
+    listen 80;
+    return 404; # managed by Certbot
 
-# }
+}
