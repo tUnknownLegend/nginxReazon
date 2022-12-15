@@ -40,10 +40,10 @@ server {
 
         # root /home/ubuntu/front-next/dist;
 
-        location / {
+        # location / {
                 # alias /home/ubuntu/front-next/dist;
-                root /home/ubuntu/front-next/dist;
-                return 301 https://www.reazon.ru;
+                # root /home/ubuntu/front-next/dist;
+                # return 301 https://www.reazon.ru;
                 # try_files $uri $uri/ /index.html =404;
                 # try_files $uri $uri/ /index.html;
 
@@ -57,7 +57,7 @@ server {
                 #         expires 0;
                 #         add_header Cache-Control "no-cache, public, must-revalidate, proxy-revalidate";
                 # }
-        }
+        # }
 
         # location = /index.html {
         #         expires 30s;
