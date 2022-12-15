@@ -43,9 +43,10 @@ server {
         location / {
                 # alias /home/ubuntu/front-next/dist;
                 root /home/ubuntu/front-next/dist;
-                try_files $uri $uri/ /index.html =404;
+                # try_files $uri $uri/ /index.html =404;
+                try_files $uri $uri/ /index.html;
 
-                index index.html;
+                # index index.html;
 
                 # etag on;
                 # expires max;
