@@ -48,32 +48,20 @@ server {
 
 server {
         listen 80;
-        # listen 80;
         server_name email.reazon.ru;
 
-        ssl_certificate /etc/letsencrypt/live/reazon.ru/fullchain.pem; # managed by Certbot
-        ssl_certificate_key /etc/letsencrypt/live/reazon.ru/privkey.pem; # managed by Certbot
-        include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-        # location / {
-        #         root /home/ubuntu/img/email;
-        #         try_files $uri $uri/ /girl.svg =404;
-        # }
+        location / {
+                root /home/ubuntu/img/email;
+                try_files $uri $uri/ /index.html =404;
+        }
 }
 
 server {
         listen 80;
-        # listen 80;
         server_name img.reazon.ru;
 
-        ssl_certificate /etc/letsencrypt/live/reazon.ru/fullchain.pem; # managed by Certbot
-        ssl_certificate_key /etc/letsencrypt/live/reazon.ru/privkey.pem; # managed by Certbot
-        include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-        # location / {
-        #         root /home/ubuntu/img/general;
-        #         try_files $uri $uri/ /girl.svg =404;
-        # }
+        location / {
+                root /home/ubuntu/img/general;
+                try_files $uri $uri/ /index.html =404;
+        }
 }
