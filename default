@@ -47,7 +47,7 @@ server {
 }
 
 server {
-        # listen 443 http2;
+        listen 443;
         server_name email.reazon.ru;
 
         location / {
