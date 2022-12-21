@@ -47,15 +47,15 @@ server {
 }
 
 server {
-        listen 443 ssl http2;
+        listen 443 http2;
         server_name img.reazon.ru;
 
-        ssl_certificate /etc/letsencrypt/live/reazon.ru/fullchain.pem; # managed by Certbot
-        ssl_certificate_key /etc/letsencrypt/live/reazon.ru/privkey.pem; # managed by Certbot
-        include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
         location / {
+                root /home/ubuntu/img/;
+                try_files $uri $uri/ /email/girl.svg =404;
+        }
+
+        location /email {
                 root /home/ubuntu/img/email;
                 try_files $uri $uri/ /girl.svg =404;
         }
