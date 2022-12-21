@@ -47,7 +47,7 @@ server {
 }
 
 server {
-        listen 443 http2;
+        listen 80;
         server_name img.reazon.ru;
 
         location / {
@@ -55,7 +55,7 @@ server {
                 try_files $uri $uri/ /email/girl.svg =404;
         }
 
-        location /email {
+        location /email/ {
                 root /home/ubuntu/img/email;
                 try_files $uri $uri/ /girl.svg =404;
         }
