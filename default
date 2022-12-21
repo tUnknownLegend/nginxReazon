@@ -47,11 +47,21 @@ server {
 }
 
 server {
-        listen 80 http2;
+        listen 443 http2;
         server_name email.reazon.ru;
 
         location / {
                 root /home/ubuntu/img/email;
+                try_files $uri $uri/ /girl.svg =404;
+        }
+}
+
+server {
+        listen 443 http2;
+        server_name img.reazon.ru;
+
+        location / {
+                root /home/ubuntu/img/general;
                 try_files $uri $uri/ /girl.svg =404;
         }
 }
