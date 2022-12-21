@@ -43,6 +43,7 @@ server {
 
         location /img/email/ {
                 root /home/ubuntu/img/email;
+                try_files $uri =404
         }
 
         location /api/v1/ {
