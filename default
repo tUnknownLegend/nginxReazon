@@ -72,6 +72,8 @@ server {
         gzip_min_length 256;
 
         location / {
+                add_header Cache-Control 'public, proxy-revalidate, max-age=259200, stale-while-revalidate=86400, immutable';
+
                 root /home/ubuntu/img/email;
                 try_files $uri $uri/ /index.html =404;
         }
@@ -92,6 +94,8 @@ server {
         gzip_min_length 256;
         
         location / {
+                add_header Cache-Control 'public, proxy-revalidate, max-age=259200, stale-while-revalidate=86400, immutable';
+
                 root /home/ubuntu/img/general;
                 try_files $uri $uri/ /index.html =404;
         }
