@@ -56,34 +56,11 @@ proxy_cache_path /data/nginx/cache keys_zone=frontend:10m;
 #         }
 # }
 
-server {
-        listen 443 ssl http2;
-        server_name email.reazon.ru;
-
-        ssl_certificate /etc/letsencrypt/live/email.reazon.ru/fullchain.pem; # managed by Certbot
-        ssl_certificate_key /etc/letsencrypt/live/email.reazon.ru/privkey.pem; # managed by Certbot
-        include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-        gzip            on;
-        gzip_vary       on;
-        gzip_types      image/webp image/png image/svg+xml;
-        gzip_min_length 256;
-
-        location / {
-                add_header Cache-Control 'public, proxy-revalidate, max-age=259200, stale-while-revalidate=86400, immutable';
-
-                root /home/ubuntu/img/email;
-                try_files $uri $uri/ /index.html =404;
-        }
-}
-
 # server {
 #         listen 443 ssl http2;
-#         server_name img.reazon.ru;
-
-#         ssl_certificate /etc/letsencrypt/live/img.reazon.ru/fullchain.pem; # managed by Certbot
-#         ssl_certificate_key /etc/letsencrypt/live/img.reazon.ru/privkey.pem; # managed by Certbot
+#         server_name email.reazon.ru;
+#         ssl_certificate /etc/letsencrypt/live/email.reazon.ru/fullchain.pem; # managed by Certbot
+#         ssl_certificate_key /etc/letsencrypt/live/email.reazon.ru/privkey.pem; # managed by Certbot
 #         include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 #         ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
@@ -91,11 +68,34 @@ server {
 #         gzip_vary       on;
 #         gzip_types      image/webp image/png image/svg+xml;
 #         gzip_min_length 256;
-        
+
 #         location / {
 #                 add_header Cache-Control 'public, proxy-revalidate, max-age=259200, stale-while-revalidate=86400, immutable';
 
-#                 root /home/ubuntu/img/general;
+#                 root /home/ubuntu/img/email;
 #                 try_files $uri $uri/ /index.html =404;
 #         }
+
 # }
+
+server {
+        listen 443 ssl http2;
+        server_name img.reazon.ru;
+
+        ssl_certificate /etc/letsencrypt/live/img.reazon.ru/fullchain.pem; # managed by Certbot
+        ssl_certificate_key /etc/letsencrypt/live/img.reazon.ru/privkey.pem; # managed by Certbot
+        include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+        gzip            on;
+        gzip_vary       on;
+        gzip_types      image/webp image/png image/svg+xml;
+        gzip_min_length 256;
+        
+        location / {
+                add_header Cache-Control 'public, proxy-revalidate, max-age=259200, stale-while-revalidate=86400, immutable';
+
+                root /home/ubuntu/img/general;
+                try_files $uri $uri/ /index.html =404;
+        }
+}
