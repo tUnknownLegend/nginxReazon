@@ -60,7 +60,6 @@ server {
 server {
         listen 443 ssl http2;
         server_name email.reazon.ru;
-
         ssl_certificate /etc/letsencrypt/live/email.reazon.ru/fullchain.pem; # managed by Certbot
         ssl_certificate_key /etc/letsencrypt/live/email.reazon.ru/privkey.pem; # managed by Certbot
         include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
@@ -82,7 +81,6 @@ server {
 server {
         listen 443 ssl http2;
         server_name img.reazon.ru;
-
         ssl_certificate /etc/letsencrypt/live/img.reazon.ru/fullchain.pem; # managed by Certbot
         ssl_certificate_key /etc/letsencrypt/live/img.reazon.ru/privkey.pem; # managed by Certbot
         include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
