@@ -5,6 +5,7 @@ server {
         server_name reazon.ru;
 
         sendfile off;
+
         ssl_certificate /etc/letsencrypt/live/reazon.ru-0001/fullchain.pem; # managed by Certbot
         ssl_certificate_key /etc/letsencrypt/live/reazon.ru-0001/privkey.pem; # managed by Certbot
         include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
