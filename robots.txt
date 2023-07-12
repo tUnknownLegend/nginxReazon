@@ -1,0 +1,6 @@
+user-agent: *
+disallow:
+user-agent: magicsearchbot
+disallow:
+Sitemap: https://www.reazon.ru/sitemap.xml
+
