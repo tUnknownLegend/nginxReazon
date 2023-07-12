@@ -1,18 +1,18 @@
 proxy_cache_path /data/nginx/cache keys_zone=frontend:10m;
 
-server {
-        listen 443  http2; # managed by Certbot
-        ssl_certificate /etc/letsencrypt/live/reazon.online/fullchain.pem; # managed by Certbot
-        ssl_certificate_key /etc/letsencrypt/live/reazon.online/privkey.pem; # managed by Certbot
-        include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-        ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+# server {
+#         listen 443 ssl http2; # managed by Certbot
+#         ssl_certificate /etc/letsencrypt/live/reazon.online/fullchain.pem; # managed by Certbot
+#         ssl_certificate_key /etc/letsencrypt/live/reazon.online/privkey.pem; # managed by Certbot
+#         include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#         ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
-        server_name reazon.online;
+#         server_name reazon.online;
 
-        sendfile off;
+#         sendfile off;
 
-        return 301 https://www.reazon.online$request_uri;
-}
+#         return 301 https://www.reazon.online$request_uri;
+# }
 
 # server {
 #         listen 80 http2;
@@ -79,23 +79,18 @@ server {
 #         }
 # }
 
-# server {
-#         listen 443 ssl http2;
-#         server_name img.reazon.online;
-#         ssl_certificate /etc/letsencrypt/live/img.reazon.online/fullchain.pem; # managed by Certbot
-#         ssl_certificate_key /etc/letsencrypt/live/img.reazon.online/privkey.pem; # managed by Certbot
-#         include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-#         ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-#         gzip            on;
-#         gzip_vary       on;
-#         gzip_types      image/webp image/png image/svg+xml;
-#         gzip_min_length 256;
+server {
+        server_name img.reazon.online;
+   
+        gzip            on;
+        gzip_vary       on;
+        gzip_types      image/webp image/png image/svg+xml;
+        gzip_min_length 256;
         
-#         location / {
-#                 add_header Cache-Control 'public, proxy-revalidate, max-age=259200, stale-while-revalidate=86400, immutable';
+        location / {
+                add_header Cache-Control 'public, proxy-revalidate, max-age=259200, stale-while-revalidate=86400, immutable';
 
-#                 root /home/ubuntu/img/general;
-#                 try_files $uri $uri/ /index.html =404;
-#         }
-# }
+                root /home/ubuntu/img/general;
+                try_files $uri $uri/ /index.html =404;
+        }
+}
